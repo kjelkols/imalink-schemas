@@ -11,7 +11,7 @@ def test_photo_create_schema_minimal():
     
     photo = PhotoCreateSchema(
         hothash="a" * 64,
-        hotpreview="base64encodedimage",
+        hotpreview_base64="base64encodedimage",
         width=4000,
         height=3000,
         user_id=1,
@@ -35,7 +35,7 @@ def test_photo_create_schema_full():
     
     photo = PhotoCreateSchema(
         hothash="b" * 64,
-        hotpreview="base64encodedimage",
+        hotpreview_base64="base64encodedimage",
         exif_dict={
             "camera_make": "Canon",
             "camera_model": "EOS R5",
@@ -97,7 +97,7 @@ def test_schema_serialization():
     
     photo = PhotoCreateSchema(
         hothash="c" * 64,
-        hotpreview="base64",
+        hotpreview_base64="base64",
         width=100,
         height=100,
         user_id=1,

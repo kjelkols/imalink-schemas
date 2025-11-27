@@ -24,7 +24,7 @@ class PhotoCreateSchema(BaseSchema):
     
     # Identity - created by imalink-core
     hothash: str = Field(..., description="SHA256 hash of hotpreview (unique ID)")
-    hotpreview: str = Field(..., description="Base64 encoded JPEG preview (~200px)")
+    hotpreview_base64: str = Field(..., description="Base64 encoded JPEG preview (~200px)")
     
     # Complete EXIF metadata (readonly DNA)
     exif_dict: Optional[dict[str, Any]] = Field(
@@ -87,13 +87,13 @@ class PhotoCreateSchema(BaseSchema):
     )
     
     # Optional larger preview
-    coldpreview: Optional[str] = Field(
+    coldpreview_base64: Optional[str] = Field(
         None,
         description="Base64 encoded larger preview (~1000px) - optional"
     )
     coldpreview_path: Optional[str] = Field(
         None,
-        description="Filesystem path to coldpreview if stored separately"
+        description="Filesystem path to coldpreview if stored separately (alternative to base64)"
     )
     
     # Source files
