@@ -61,7 +61,7 @@ class PhotoCreateSchema(BaseSchema):
         default="private",
         description="Visibility level (private, space, authenticated, public)"
     )
-    import_session_id: Optional[int] = Field(
+    input_channel_id: Optional[int] = Field(
         None,
         description="Import batch this photo belongs to"
     )
@@ -130,7 +130,7 @@ class PhotoResponse(BaseSchema):
     rating: int
     category: Optional[str] = None
     
-    import_session_id: Optional[int] = None
+    input_channel_id: Optional[int] = None
     author_id: Optional[int] = None
     stack_id: Optional[int] = None
     coldpreview_path: Optional[str] = None
